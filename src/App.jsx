@@ -4,7 +4,7 @@ import { Breadcrumbs } from './shared/ui/Breadcrumbs/Bread';
 import { useState } from 'react';
 
 function App() {
-  const [jwtToken, setJwtToken] = useState('as');
+  const [jwtToken, setJwtToken] = useState('');
 
   return (
     <div className="container">
@@ -30,7 +30,7 @@ function App() {
         <Navbar jwtToken={jwtToken} />
         <Breadcrumbs />
         <div className="mt-1">
-          <Outlet />
+          <Outlet context={{ jwtToken, setJwtToken }} />
         </div>
       </div>
     </div>
