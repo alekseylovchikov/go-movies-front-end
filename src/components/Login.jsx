@@ -1,20 +1,27 @@
 import { useState } from 'react';
 import { Title } from '../shared/ui/Title';
 import { Input } from './form/Input';
-import { useOutletContext } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { setJwtToken } = useOutletContext();
+  const { setJwtToken, setAlertMessage } = useOutletContext();
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('hello');
+
+    setAlertMessage(null);
 
     if (email === 'admin@test.com') {
       setJwtToken('abc');
+      setAlertMessage({ message: 'Login successful' });
+      navigate('/');
+    } else {
+      setAlertMessage({ message: 'Login failed' });
     }
   };
 
