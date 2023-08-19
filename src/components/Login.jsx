@@ -7,7 +7,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { setJwtToken, setAlertMessage } = useOutletContext();
+  const { setJwtToken, setAlertMessage, setAlertClassName } = useOutletContext();
 
   const navigate = useNavigate();
 
@@ -19,9 +19,11 @@ const Login = () => {
     if (email === 'admin@test.com') {
       setJwtToken('abc');
       setAlertMessage({ message: 'Login successful' });
+      setAlertClassName('success');
       navigate('/');
     } else {
       setAlertMessage({ message: 'Login failed' });
+      setAlertClassName('danger');
     }
   };
 

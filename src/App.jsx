@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import Alert from './components/Alert';
 import { Breadcrumbs } from './shared/ui/Breadcrumbs/Bread';
@@ -8,6 +8,12 @@ function App() {
   const [jwtToken, setJwtToken] = useState('');
   const [alertMessage, setAlertMessage] = useState(null);
   const [alertClassName, setAlertClassName] = useState('');
+  const navigate = useNavigate();
+
+  const logout = () => {
+    setJwtToken('');
+    navigate('/login');
+  };
 
   return (
     <div className="container">
@@ -23,7 +29,7 @@ function App() {
               Login
             </Link>
           ) : (
-            <button type="button" onClick={() => setJwtToken('')} className="link link-btn">
+            <button type="button" onClick={logout} className="link link-btn">
               Log out
             </button>
           )}
@@ -33,7 +39,7 @@ function App() {
         <Navbar jwtToken={jwtToken} />
         <Breadcrumbs />
         <div className="mt-1">
-          <Alert alert={alertMessage} />
+          <Alert alert={alertMessage} className={alertClassName} />
           <Outlet context={{ jwtToken, setJwtToken, setAlertClassName, setAlertMessage }} />
         </div>
       </div>
