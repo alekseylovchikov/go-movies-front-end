@@ -1,6 +1,11 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet } from 'react-router-dom';
+import { Navbar } from './components/Navbar';
+import { Breadcrumbs } from './shared/ui/Breadcrumbs/Bread';
+import { useState } from 'react';
 
 function App() {
+  const [jwtToken, setJwtToken] = useState('as');
+
   return (
     <div className="container">
       <div>
@@ -9,38 +14,21 @@ function App() {
             useful links
           </Link>
         </div>
-
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
-          <Link className="link" to="/login">
-            Login
-          </Link>
+        <div className="mb-1 flex gap-0-5" style={{ justifyContent: 'flex-end' }}>
+          {jwtToken === '' ? (
+            <Link className="link" to="/login">
+              Login
+            </Link>
+          ) : (
+            <button type="button" onClick={() => setJwtToken('')} className="link link-btn">
+              Log out
+            </button>
+          )}
         </div>
       </div>
       <div>
-        <div>
-          <nav>
-            <div className="flex gap-0-5">
-              <Link className="link" to="/">
-                Home
-              </Link>
-              <Link className="link" to="/movies">
-                Movies
-              </Link>
-              <Link className="link" to="/genres">
-                Genres
-              </Link>
-              <Link className="link" to="/admin/movie/0">
-                Add Movie
-              </Link>
-              <Link className="link" to="/manage-catalogue">
-                Manage Catalogue
-              </Link>
-              <Link className="link" to="/graphql">
-                GraphQL
-              </Link>
-            </div>
-          </nav>
-        </div>
+        <Navbar jwtToken={jwtToken} />
+        <Breadcrumbs />
         <div className="mt-1">
           <Outlet />
         </div>

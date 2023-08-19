@@ -1,4 +1,5 @@
-import { useRouteError } from "react-router-dom";
+import { useRouteError } from 'react-router-dom';
+import { Title } from '../shared/ui/Title';
 
 export default function ErrorPage() {
   const error = useRouteError();
@@ -7,7 +8,7 @@ export default function ErrorPage() {
     <div>
       <div>
         <div>
-          <h1>Oh no!</h1>
+          <Title>Oh no!</Title>
           <p>
             <strong>{error.statusText || error.message}</strong>
           </p>

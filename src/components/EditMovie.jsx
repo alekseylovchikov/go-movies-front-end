@@ -1,7 +1,9 @@
+import { Title } from '../shared/ui/Title';
+
 const EditMovie = () => {
   return (
     <div>
-      <h2>EditMovie</h2>
+      <Title>EditMovie</Title>
     </div>
   );
 };

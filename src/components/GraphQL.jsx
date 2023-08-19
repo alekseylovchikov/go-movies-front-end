@@ -1,7 +1,9 @@
+import { Title } from '../shared/ui/Title';
+
 const GraphQL = () => {
   return (
     <div>
-      <h2>GraphQL</h2>
+      <Title>GraphQL</Title>
     </div>
   );
 };

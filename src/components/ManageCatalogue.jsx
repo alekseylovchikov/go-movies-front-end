@@ -1,7 +1,9 @@
+import { Title } from '../shared/ui/Title';
+
 const ManageCatalogue = () => {
   return (
     <div>
-      <h2>ManageCatalogue</h2>
+      <Title>Manage Catalogue</Title>
     </div>
   );
 };

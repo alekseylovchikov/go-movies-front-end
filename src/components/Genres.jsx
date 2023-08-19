@@ -1,7 +1,9 @@
+import { Title } from '../shared/ui/Title';
+
 const Genres = () => {
   return (
     <div>
-      <h2>Genres</h2>
+      <Title>Genres</Title>
     </div>
   );
 };
