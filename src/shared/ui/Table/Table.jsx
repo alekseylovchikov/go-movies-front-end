@@ -25,7 +25,7 @@ export const Table = ({ links }) => {
             <td>{link.email}</td>
             <td>{link.category}</td>
             <td>{link.links}</td>
-            <td>{link.added_at}</td>
+            <td>{link.created_at}</td>
           </tr>
         ))}
       </tbody>

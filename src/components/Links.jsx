@@ -68,12 +68,12 @@ export const _links = [
 
 const temp = (
   <>
-    <h1 className="mb-1" style={{ color: 'tomato' }}>
+    <h4 className="mb-1" style={{ color: 'tomato' }}>
       *** <u>HERE WILL BE A SEARCH</u> ***
-    </h1>
-    <h1 className="mb-1" style={{ color: 'tomato' }}>
+    </h4>
+    <h4 className="mb-1" style={{ color: 'tomato' }}>
       *** <u>HERE WILL BE A BADGE WITH CATEGORIES</u> ***
-    </h1>
+    </h4>
   </>
 );
 
