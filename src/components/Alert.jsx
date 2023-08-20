@@ -14,26 +14,25 @@ const Alert = (props) => {
       className="flex flex-direction-column"
       style={{
         position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        backgroundColor: 'white',
-        color: 'tomato',
-        border: '3px solid tomato',
-        padding: '2rem',
+        top: '0',
+        left: '0',
+        right: '0',
+        bottom: '0',
+        backgroundColor: 'rgba(0,0,0,0.2)',
+        color: props.className === 'danger' ? 'tomato' : '#23b564',
+        border: '1px solid tomato',
+        padding: '1.5rem',
         borderRadius: '3px',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
+      onClick={() => setShow(false)}
     >
-      {props.alert?.message}
-      <button
-        className="link link-btn"
-        type="button"
-        onClick={() => {
-          setShow(false);
-        }}
-      >
-        close
-      </button>
+      <div className="flex flex-direction-column" style={{ background: 'white', padding: '5rem 10rem' }}>
+        <h1>{props.alert?.message}</h1>
+      </div>
     </div>
   );
 };
